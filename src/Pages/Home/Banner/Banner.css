@@ -1,0 +1,23 @@
+.banner-image {
+    background-image: url("https://cdn.vox-cdn.com/thumbor/y-5nSuDQhelR5OBzEzXV0YURZVg=/0x0:2040x1360/1720x0/filters:focal(0x0:2040x1360):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22258914/vpavic_210118_4378_0170.jpg")
+    ,
+      linear-gradient(rgba(36, 35, 35, 0.87), rgb(54, 52, 52));
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+}
+
+.title-container {
+    position: relative;
+    top: 35%;
+}
+.title h1 {
+  color: white;
+  font-size: 60px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

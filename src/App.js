@@ -1,23 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home/Home'
+import Login from './Pages/Authentication/Login/Login';
+import Register from './Pages/Authentication/Register/Register';
+import NotFound from './Pages/NotFound/NotFound';
+import Expore from './Pages/Explore/Explore/Expore';
+import AuthProvider from './Contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
+import AddReview from './Pages/AddReview/AddReview';
+import PlaceOrder from './Pages/Orders/PlaceOrder/PlaceOrder';
+import DashBoard from './Pages/DashBoard/DashBaord/DashBoard';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <Router>
+
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/explore">
+              <Expore></Expore>
+            </Route>
+            <Route path="/addreview">
+              <AddReview></AddReview>
+            </Route>
+            <Route path="/dashboard">
+              <DashBoard></DashBoard>
+            </Route>
+            <PrivateRoute path="/placeorder/:id">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

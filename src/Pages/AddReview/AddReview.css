@@ -1,0 +1,17 @@
+.review{
+    height: 75vh;
+  }
+  
+.review form {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+.review form input,
+    textarea {
+        width: 500px;
+      margin-bottom: 15px;
+}
+    

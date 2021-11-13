@@ -1,0 +1,12 @@
+.notfound h1{
+    font-size: 180px;
+    color: red;
+}
+
+.notfound p {
+    font-size: 40px;
+    color: red;
+}
+.notfound{
+    min-height: 580px;
+}
