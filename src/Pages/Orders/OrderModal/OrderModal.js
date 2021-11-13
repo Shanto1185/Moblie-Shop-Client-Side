@@ -20,7 +20,7 @@ const style = {
     p: 4,
 };
 
-const OrderModal = ({ handleClose, open, details }) => {
+const OrderModal = ({ handleClose, open, details, history }) => {
 
     const { user } = useAuth()
     const { name } = details;
@@ -56,6 +56,7 @@ const OrderModal = ({ handleClose, open, details }) => {
                 if (data.insertedId) {
                     alert('your order is successfully added')
                     handleClose();
+                    history.replace('/');
                 }
             })
         e.preventDefault();

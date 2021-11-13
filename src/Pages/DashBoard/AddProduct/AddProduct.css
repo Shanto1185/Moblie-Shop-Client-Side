@@ -1,0 +1,17 @@
+.addProduct{
+    height: 75vh;
+  }
+  
+.addProduct form {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+.addProduct form input,
+    textarea {
+        width: 500px;
+      margin-bottom: 15px;
+}
+    

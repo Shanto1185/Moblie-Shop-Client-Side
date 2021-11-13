@@ -9,9 +9,9 @@ const ExploreProducts = (props) => {
                 <img src={img} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h3 className="card-title">{name}</h3>
-                    <h6 className="card-text">Storage: {specification.Storage}</h6>
-                    <h6 className="card-text">Camera: {specification.Camera}</h6>
-                    <h6 className="card-text">Battery: {specification.Battery}</h6>
+                    <h6 className="card-text">Storage: {specification?.Storage}</h6>
+                    <h6 className="card-text">Camera: {specification?.Camera}</h6>
+                    <h6 className="card-text">Battery: {specification?.Battery}</h6>
                     <p className="card-text">{description}</p>
                     <p className="card-text">Starts From: {price}</p>
 

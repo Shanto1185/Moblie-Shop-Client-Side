@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -22,10 +16,9 @@ import MakeAdmin from './../MakeAdmin/MakeAdmin';
 import AddProduct from './../AddProduct/AddProduct';
 import useAuth from './../../../Hooks/useAuth';
 import AdminRoute from '../../Authentication/AdminRoute/AdminRoute';
-
-
-
-
+import ManageAllOrders from './../ManageAllOrders/ManageAllOrders';
+import PayMethod from '../PayMethod/PayMethod';
+import AddReview from './../AddReview/AddReview'
 
 
 const drawerWidth = 240;
@@ -34,7 +27,7 @@ function DashBoard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, logOut, user } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -46,30 +39,24 @@ function DashBoard(props) {
             <Divider />
             <Link to="/home" style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">Home</Button></Link>
             <br />
-
-
-            {!admin && <Link to={`${url}`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">My Orders</Button></Link>}
-
+            {!admin && <Box>
+                <Link to={`${url}`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">My Orders</Button></Link>
+                <br />
+                <Link to={`${url}/payMethod`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">Pay Method</Button></Link>
+                <br />
+                <Link to={`${url}/addReview`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">Add Review</Button></Link>
+                <br />
+                <Button onClick={logOut} variant="contained">LogOut</Button>
+            </Box>}
             <br />
-
             {admin && <Box>
+                <Link to={`${url}`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">Manage All Orders</Button></Link>
+                <br />
                 <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">Make Admin</Button></Link>
                 <br />
                 <Link to={`${url}/addProduct`} style={{ textDecoration: 'none', color: '#F08080' }}><Button color="inherit">Add Product</Button></Link>
+                <br />
             </Box>}
-
-
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
         </div>
     );
 
@@ -96,7 +83,7 @@ function DashBoard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Dashboard
+                        {user.displayName}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -138,15 +125,24 @@ function DashBoard(props) {
             >
                 <Toolbar />
                 <Switch>
-                    <Route exact path={path}>
+                    {!admin && <Route exact path={path}>
                         <MyOrders></MyOrders>
-                    </Route>
+                    </Route>}
+                    {admin && <Route exact path={path}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </Route>}
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
                     </AdminRoute>
+                    <Route path={`${path}/payMethod`}>
+                        <PayMethod></PayMethod>
+                    </Route>
+                    <Route path={`${path}/addReview`}>
+                        <AddReview></AddReview>
+                    </Route>
                 </Switch>
             </Box>
         </Box>

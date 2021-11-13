@@ -7,7 +7,6 @@ import NotFound from './Pages/NotFound/NotFound';
 import Expore from './Pages/Explore/Explore/Expore';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
-import AddReview from './Pages/AddReview/AddReview';
 import PlaceOrder from './Pages/Orders/PlaceOrder/PlaceOrder';
 import DashBoard from './Pages/DashBoard/DashBaord/DashBoard';
 
@@ -27,12 +26,9 @@ function App() {
             <Route path="/explore">
               <Expore></Expore>
             </Route>
-            <Route path="/addreview">
-              <AddReview></AddReview>
-            </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <DashBoard></DashBoard>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>

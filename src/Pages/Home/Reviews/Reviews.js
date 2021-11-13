@@ -24,6 +24,7 @@ const Reviews = () => {
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h3 class="card-title fw-bolder">{review.name}</h3>
+                                        <h6 class="card-title fw-bold">{review.email}</h6>
                                         <p class="card-text">{review.comment}</p>
                                     </div>
                                 </div>
