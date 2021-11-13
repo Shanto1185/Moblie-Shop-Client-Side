@@ -11,7 +11,7 @@ const Products = () => {
     }, [])
     return (
         <div className="container">
-            <h1 className="my-5 fw-bolder">New Arraived</h1>
+            <h1 className="my-5 fw-bolder my-5">New <span className="text-warning"> Arrived</span></h1>
             <div className="row row-cols-1 row-cols-md-2 g-4">
                 {
                     products.map(product => <Product

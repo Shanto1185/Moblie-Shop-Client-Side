@@ -1,14 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
-import useAuth from './../../../Hooks/useAuth';
 import './AddProduct.css';
 
 
 
 const AddProduct = () => {
 
-    const { user } = useAuth();
 
     const { register, handleSubmit, reset } = useForm();
 

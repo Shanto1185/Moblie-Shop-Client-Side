@@ -35,7 +35,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            make me a admin
+            <h3>Make Someone Admin</h3>
             <form onSubmit={handleSubmit}>
                 <TextField
                     sx={{ width: '30%' }}

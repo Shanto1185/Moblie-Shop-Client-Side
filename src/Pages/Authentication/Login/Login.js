@@ -94,13 +94,15 @@ const Login = () => {
                         </Button>
                     </NavLink>
                 </form>}
-
                 {isLoading && <CircularProgress />}
-
                 {user?.email && <Alert severity="success">
                     Login Successful</Alert>}
 
                 {error && <Alert severity="error">{error}</Alert>}
+
+
+
+
 
             </Grid>
         </Container>

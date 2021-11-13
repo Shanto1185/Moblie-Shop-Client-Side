@@ -92,7 +92,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [])
+    }, [auth])
 
     useEffect(() => {
         fetch(`https://aqueous-reef-70969.herokuapp.com/users/${user?.email}`)

@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import Products from '../Products/Products';
 import Reviews from '../Reviews/Reviews';
 import Navigation from './../../Shared/Navigation/Navigation';
+import BestSelling from './../BestSelling/BestSelling';
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <Products></Products>
             <Reviews></Reviews>
+            <BestSelling></BestSelling>
             <Footer></Footer>
         </div>
     );
